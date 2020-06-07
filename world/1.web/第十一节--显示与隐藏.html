@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>显示与隐藏</title>
+	<style>
+		*{
+			margin: 0px;
+			padding: 0px;
+		}
+        .box{
+			display: inline-block;
+			width: 470px;
+			height: 500px;
+			background-color: pink;
+			margin:0px auto;
+			/*display: none;*/
+			margin-left: 0PX;
+			overflow: hidden;
+        }
+        .inner{
+        	display: none;
+        	font-size: 260px;
+        	color: #ccf4f6;
+			text-align: center;
+			margin-top: 90px;
+        }
+        .box:hover .inner{
+        	display: block;
+        }
+	</style>
+</head>
+<body>
+	<!-- 行内块元素有换行符会引起间距问题 -->
+	<div class="box">
+		<div class="inner">生</div>
+	</div>
+	<div class="box">
+		<div class="inner">而</div>
+	</div>
+	<div class="box">
+		<div class="inner">不</div>
+	</div>
+	<div class="box">
+		<div class="inner">凡</div>
+	</div>
+	<!-- 解决一:方法如下 -->
+	<div class="box">
+		<div class="inner">生</div>
+	</div
+	><div class="box">
+		<div class="inner">而</div>
+	</div
+	><div class="box">
+		<div class="inner">不</div>
+	</div
+	><div class="box">
+		<div class="inner">凡</div>
+	</div>
+	<!-- 方法二:方法如下 -->
+	<div class="box">
+		<div class="inner">生</div>
+	</div><div class="box">
+		<div class="inner">而</div>
+	</div><div class="box">
+		<div class="inner">不</div>
+	</div><div class="box">
+		<div class="inner">凡</div>
+	</div>
+	<!-- 方法三把父级font-size设置为0	 -->
+</body>
+</html>

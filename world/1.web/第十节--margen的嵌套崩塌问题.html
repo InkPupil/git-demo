@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>margen的嵌套崩塌问题</title>
+	<style>
+		*{
+			margin: 0px;
+			padding: 0px;
+		}
+		.bo1{
+			/*overflow: hidden;*/
+		}
+		.box{
+			height: 500px;
+			width: 500px;
+			background-color: pink;
+			/*嵌套崩塌(作用在子类盒子身上的margin-top直接作用在了父类盒子身上)解决方法父类盒子加(overflow:hidden;)*/
+			overflow: hidden; 
+		}
+		.box .box2{
+			height: 100px;
+			width: 100px;
+			margin-top:200px;
+			margin-left: 200px;
+			background-color: #fff; 
+		}
+		.box3{
+			height: 200px;
+			width: 200px;
+			background-color: blue;
+			margin: 20px;
+			overflow: hidden;
+		}
+		.box4{
+			height: 100px;
+			width: 100px;
+			background-color: yellow;
+			margin: 30px;
+			overflow: hidden;
+		}
+		.box5{
+			height: 300px;
+			width: 200px;
+			background-color: black;
+			/*margin: 50px;*/
+		}
+	</style>
+</head>
+<body>
+	<div class="bo1">
+ <div class="box">
+ 		<div class="box2"></div>
+ 	</div>	
+ <div class="box3"></div>
+ <div class="box4"></div>
+ <span>前端世界</span>
+ <!-- <div class="box5"></div>		 -->
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>复杂选择器</title>
+<!-- 交集选择器
+	 并集选择器
+	 后代选择器
+     通配符选择器 -->
+	<style>
+    
+     .text.box{
+
+     	color: red;
+     }
+     /*交集选择器*/
+     .box1,.box2{
+     	font-size: 30px;
+     }
+     /*并集选择器*/
+     .text .box1{
+     	width: 200px;
+     	height: 200px;
+     	background-color: #000;
+     }
+	</style>
+</head>
+<body>
+	<div class="text box">
+		<div class="box1">欢迎来到</div>
+	</div>
+	<div class="text box2">
+		前端世界
+	</div>
+</body>
+</html>
