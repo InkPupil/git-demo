@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- 移动端视图(个人理解) -->
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<!-- 兼容 -->
+	<title>js的引入方式</title>
+	<script src="js-text.js"></script>
+	<!-- 头部引入的外部js文件 -->
+	<script>
+		console.log('头部书写js')
+	</script>
+	<!-- 头部书写js文件 -->
+	<style>
+		
+	</style>
+</head>
+<body>
+	<!-- 切记内部书写的js文件需要放在标签之后 -->
+	<script>
+		document.write('前端大世界');
+		
+		console.log('控制台输出');
+		// 控制台输出 调试代码用的比较多
+		alert('天气挺好');
+		// 提示框弹出
+		prompt('输入你的爱好');
+		// 用户输入
+	</script>
+	<script src="js-text.js"></script>
+	<!-- 外部引入 -->
+</body>
+</html>
