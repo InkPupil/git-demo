@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>数据类型</title>
+
+</head>
+<body>
+	<h2>数据类型</h2>
+	<script>
+		// 数据类型分为基本数据类型和复杂数据类型
+		// 基本数据类型有六种
+
+		// 1.字符串(string)用引号或者双引号包裹 注意引号不能嵌套使用,单双引号可以混用
+		var str='我是一个字符串';
+		var str2="我是第二个字符串";
+		var str3=str+str2;
+		console.log(str3);
+
+		// 2.数字类型(number)(整数,小数,浮点数)
+		var num=20;
+		var age=23;
+		var floatNum=12.9;
+		console.log(num);
+
+		console.log(str3-str);
+		// 计算不出返回NaN
+		// 无穷大infinity  无穷小-infinity
+
+		// 3.布尔值(boolean) true(真/符合条件) flase(假/不符合条件) 常用于条件判断
+        var sex=true;
+        console.log(sex);
+        console.log('true');
+
+        // 4.undefined类型 当声明一个变量没有初始值,默认也会给他初始化一个undefined值
+        var firstName;
+        console.log(firstName);
+
+        // 5.null类型 空值
+        var timeLife=null;
+        console.log(timeLife);
+
+        // 6.es6新增了Symbol 类型
+
+
+        // 复杂的数据类型
+        // object Array数组类型 Function函数类型 (归根到底都是object  key:value;)
+        var obj = {
+        	name:'xiaohe',
+            age:20,
+            sex:true,
+            children:{
+               name:'李四',
+               age:40
+            }
+        };
+        console.log(obj);
+
+        // 数组类型 数组元素用逗号隔开
+        var arr=[4,5,6,name="李四",age=30,true,'前端世界'];
+        console.log(arr);
+
+        // 函数类型 
+        // function 函数名(参数){
+        // 	执行代码
+        // }
+        // 怎么判断一个变量的数据类型
+        console.log(typeof str); //string类型
+        console.log(typeof num); //number类型
+        console.log(typeof sex); //boolean类型
+        console.log(typeof firstName); //undefined
+        console.log(typeof timeLife); //object
+        console.log(typeof obj); //object
+        console.log(typeof arr); //object
+	</script>
+</body>
+</html>

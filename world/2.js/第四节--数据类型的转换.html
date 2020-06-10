@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>数据类型的转换</title>
+</head>
+<body>
+	<h2>数据类型的转换</h2>
+	<script>
+	// 1.转化为字符串  toString().或+
+	console.log(null+'hello'); //null变为字符串
+	console.log('hello'+1);  //数字1变为字符串1
+        console.log(undefined+'hello'); //undefined 变为字符串
+        console.log(true.toString()) //true变为字符串
+
+
+        // 2.转化为boolean类型 Boolean()
+        // 数字0,NaN,"",false,undefined,null,全是false
+        console.log(Boolean(0)); //false
+        console.log(Boolean("")); //false
+        console.log(Boolean(" ")); //true
+        console.log(Boolean(false)); //false
+        console.log(Boolean(undefined)); //false
+
+        // 3.转换为number类型 Number()  parseInt()转换成整数 只取整数部分 parseFloat()转换位小数
+        console.log(Number('132222'));//132222
+        console.log(Number('132.292'));//132.292
+        console.log(Number(''));//0;
+        console.log(Number(true));//1  true转为0 false转为1
+
+        console.log(parseInt("123.9"));//123
+        console.log(parseInt("123a1"));//123
+        console.log(parseInt(''));//NaN
+
+        console.log(parseFloat("123"));//123
+        console.log(parseFloat('123.01'));//123.01
+        console.log(parseFloat('123.88.3'));//123.88
+        console.log(parseFloat('123.9a9'));//123.9
+	</script>
+</body>
+</html>
