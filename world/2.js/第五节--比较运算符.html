@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>比较运算符</title>
+</head>
+<body>
+	<script>
+    // =====> >大于 >=大于等于 <小于 <=小于等于 ==等于 ===严格等于 !=(==的反面) !==(===的反面)
+    //比较运算符 返回的结果是true 还是false.
+    console.log(5>3);//true
+    console.log(3>5);//false
+    console.log(5==5);//true
+     // == 假如数据类型不一致 ,会将其它数据类型转换为number,在比较
+    console.log(5=='5');//true 隐式转换  将 '5'转换成了 5
+    // === 先比较 数据类型 ,数据类型不一样,直接false    
+    console.log(5==='5'); 
+
+    // 比较的时候 一方是数字 一方不是数字,会把不是数字的 转换成数字
+    console.log('5'>2);//true
+    console.log('ab' > 'ac'); // 97>98
+        // 比较运算符 不能连用 
+        // a<5<b		
+	</script>
+</body>
+</html>
