@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>赋值运算</title>
+</head>
+<body>
+	<script>
+		var a=5;
+		a=10;
+		var b=a+5;
+		console.log(b);//15
+		a=a+3;
+		console.log(a);
+
+		var c=5;
+		c+=5;
+		// c+=5等同于c=c+5
+		console.log(c);
+		var tem=c++;//先把c的值赋给tem然后在自加一
+		console.log(tem,c)//10 11
+        
+        var d=20;
+        var te=++d;//先加一再赋值
+        console.log(te,d)//21 21
+	</script>
+</body>
+</html>
