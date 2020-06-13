@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>逻辑运算符</title>
+</head>
+<body>
+	<script>
+	// && 与(都真为真)
+	// || 或(有一真即为真)
+	// !  非(取反)
+
+    // console.log(false&&true);//false
+    // console.log(true||false);//true
+    // console.log(!true);//false
+
+
+    //判断2 在不在 3和5之间 
+    // console.log(2>3&&2<5);//fasle
+    // 判断 一个人是否能够 考驾照 ,交通法规定18-70岁能够考驾照.
+
+    var age=Number(prompt('请输入你的年龄'));//string
+
+    console.log(age);
+
+    console.log(age>18&&age<70);
+
+
+    //逻辑运算符 返回的是操作数
+
+    var a5 = "Gat" && "Dog";//遇到false就返回 //Dog
+    //与 && 当第一个值为假时直接返回操作数
+    // 当第一个值为真时 直接返回第二个操作数,
+    console.log(a5);
+
+    var a6 = "Gat" && false;//false
+
+    var a7 = 0 && "Gat";//0
+
+    var a8 = "cat" && "";// ""
+    console.log(a6);
+    console.log(a7);
+    console.log(a8);
+
+    var b1="cat"||"dog";//cat
+    var b2=false||"cat";//cat
+    var b3="cat"||false;//cat
+
+    var n3=!"cat";//fasle
+	</script>
+</body>
+</html>

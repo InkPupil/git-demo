@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Math对象</title>
+</head>
+<body>
+	<script>
+		// Math内置对象
+		// 不需要new 封装了很多数学方法
+
+		// 1.Math.ceil() 天花板函数向上取整
+		console.log(Math.ceil(4.3));//5
+		console.log(Math.ceil(4.9));//5
+
+		// 2.Math.floor() 地板函数向下取整
+        console.log(Math.floor(4.3));
+        console.log(Math.floor(4.9));
+        
+        console.log(Math.max(4,5,9));//求最大值
+        console.log(Math.min(2,3,4));//求最小值
+
+
+        console.log(Math.random());//返回0-1之间的任意数值 随机 不包括1
+
+        console.log(Math.floor(Math.random()*100));//0-99随机
+        
+        console.log(Math.floor(Math.random()*99)+1);//1-99随机
+        
+        console.log(Math.floor(Math.random()*8)+3);//3到10随机
+
+        // Math.floor(Math.random()*个数)+最小值
+
+
+
+        console.log(Math.pow(2,4));//2的4次方
+
+        //Math.round() 四舍五入
+        console.log(Math.round(4.49999999999999));
+        //电脑存在舍入误差 2.99999999999999   3.0
+        //4.499999999999999999 4.5
+	</script>
+</body>
+</html>
