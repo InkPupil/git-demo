@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>break和continue</title>
+</head>
+<body>
+	<script>
+		// 从1-99中找到+5+7之后,能被33整除的数,
+		// 在找到第一个满足的条件时,没必要进行额外的运算,这个时候皆可以终止循环;
+		for(var i=1;i<100;i++){
+			if ((i+5+7)%33===0) {
+				console.log('找到符合条件的第一个数',i);
+				break;//跳出循环
+			}
+		}
+
+
+        //需求 找到0-30中所有能被3整除,,或者能被七整除的数
+        for(var i =0;i<=30;i++){
+            if(i%3===0){
+                console.log('这个数能被3整除'.i);
+                continue;//结束本次循环
+            }
+            if(i%7===0){
+                console.log('这个数能被7整除',i)
+            }
+        }
+	</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>while和do while</title>
+</head>
+<body>
+	<script>
+		// while可以实现循环 执行某段代码
+		// var num=0;
+		// while(num<10){
+		// 	console.log(num);
+		// 	num++;
+		// }
+
+		// 先执行后判断
+		var count=10;
+		do{
+			console.log(count);
+			count++;
+		}while(count<10)
+
+		//年利率为5% 1000涨到5000需要多少年
+		var year=0;
+		var money=1000;
+		while(money<=5000){
+			money*=1.05;//money=money*1.05;
+			year++;
+		}
+		console.log(year)
+	</script>
+</body>
+</html>
