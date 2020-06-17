@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>冒泡排序</title>
+</head>
+<body>
+	<script>
+		//从小到大排列
+        // 它重复地走访过要排序的元素列，依次比较两个相邻的元素，
+        // 如果他们的顺序（如从大到小、首字母从A到Z）错误就把他们交换过来。
+        // 走访元素的工作是重复地进行直到没有相邻元素需要交换，也就是说该元素列已经排序完成。
+        // 第一轮
+        // var arr=[5,20,15,16,18];
+        // for(var i=0;i<arr.length-1;i++){
+        // 	if(arr[i]>arr[i+1]){
+        // 		var temp=arr[i];
+        // 		arr[i]=arr[i+1];
+        // 		arr[i+1]=temp
+        // 	}
+        // 	console.log(arr);
+        // }
+        // console.log(arr);
+
+
+        //冒泡排序
+        var arr=[30,29,24,22];
+        for(var j=1;j<arr.length;j++){
+        	// 控制比较的次数(轮数)
+        	for(var i=0;i<arr.length-j;i++){
+                // 两两比较 冒泡
+                // 第一轮  比较  3次  0 1 2
+                // 第二轮比较  2次  0  1
+                // 第三轮 比较 1次  0 
+                 if (arr[i] > arr[i + 1]) {
+                    // 交换位置
+                    // 保留arr[i]的值
+                    var temp = arr[i];
+                    arr[i] = arr[i + 1];
+                    arr[i + 1] = temp;
+                }
+                // console.log(arr)
+        	}
+        	console.log(arr)
+        };
+        // console.log(arr);
+	</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>数组求平均</title>
+</head>
+<body>
+	<script>
+		var arr=[20,50,30,80,200];
+		// var sum=0;
+		// for(var i=0;i<arr.length;i++){
+		// 	sum=sum+arr[i];
+		// 	console.log(sum)
+		// };
+		// console.log(sum);
+		// var avj=sum/arr.length;
+		// console.log(avj);
+  //       var temp=arr.push();
+  //       console.log(temp)
+
+
+        //第二种方法 函数封装
+        function avjs(arr){
+        	var sum=0;
+        	for(var i=0;i<arr.length;i++){
+        		sum=sum+arr[i];
+        		console.log(i,arr[i])
+        	}
+        	var avj1=sum/arr.length;
+        	// console.log(sum,arr.length)
+        	console.log(avj1)
+        }
+        avjs(arr)
+	</script>
+</body>
+</html>

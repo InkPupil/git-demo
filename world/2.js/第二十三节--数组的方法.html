@@ -29,9 +29,20 @@
         console.log(emarr1);
         console.log(emarr);
 
-        //添加元素 push() 从后面加入元素  unshift() 从前面加入元素
+        //添加元素 push() 从后面加入元素  unshift() 从前面加入元素 都会改变原数组
         var temp=arr.push('zhangshan');
         console.log(temp);
+        // console.log(arr);
+        arr.unshift('李世');
+        arr.push('张珊');
+        console.log(arr);
+
+        //删除元素 pop() 删除数组的最后一个元素  shift() 删除数组的第一个元素 改变原数组
+        //并且返回删除的数组
+        var temp2=arr.pop();
+        console.log(temp2,arr);
+        var temp3=arr.shift();
+        console.log(temp3,arr);
 	</script>
 </body>
 </html>
