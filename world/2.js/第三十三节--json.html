@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>json</title>
+</head>
+<body>
+	<script>
+		var obj={
+			name:'张珊',
+			age:23,
+			sex:'女'
+		}
+
+		var jsonObj={
+			"name":"王五",
+			"age":"男"
+		}
+
+		console.log(jsonObj.name)
+
+		var objstr="{name:'李世',age:19}";//字符串
+		var json1='{"name":"夏娃","age":"150"}'//json字符串
+		console.log(json1.name);//undefined 无法找到name 属性 需要变回对象
+		var json2=JSON.parse(json1);
+		// var obj2=JSON.parse(objstr);
+		// console.log(obj2);
+        console.log(json2); //切记只有json类型的字符串才能变为对象 其他会报错
+        
+        var movieJson={
+        	"title":"西虹市首富",
+        	"directors":"闫飞",
+        	"year":"2018"
+        }
+        // 将对象 转换为json字符串
+        var moviej1=JSON.stringify(movieJson);
+        console.log(moviej1)
+	</script>
+</body>
+</html>
