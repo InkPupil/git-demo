@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>数组的高级方法</title>
+</head>
+<body>
+	<script>
+		var arr=[1,3,5,7];
+		console.log(arr.toString());
+		//数组转换为字符串 数组名.toString() 会修改原数组
+		console.log(arr.reverse());
+		//翻转数组 数组名.reverse()  会修改原数组
+		console.log(arr);
+		var arr1=[23,4,56,34,77,24,241];
+        //排序写法
+		arr1.sort(function(a,b){
+			return a-b;
+		});
+		//也可以写成
+		arr1.sort((a,b)=>a-b);
+		console.log('arr1==>',arr1);
+		var nameArr=['张珊','李四','asdfgg','abc'];
+		nameArr.sort(function(a,b){
+         return a.length-b.length;
+		});
+		console.log(nameArr);
+
+		// indexOf() 从左到右查找指定元素 找到就立即停止
+		// lastIndexOf() 从后往前查找找到就停止
+		// 找到就返回 找到元素的下标 找不到就返回 -1
+		var arr2=['张珊','张三','李珊珊','asdsfds','safd'];
+		// 判断指定元素在不在数组内
+		console.log(arr2.indexOf('张珊'));//0
+        console.log(arr2.lastIndexOf('张三'));//1
+
+        //slice() 从当前数组中截取一个新的数组 不影响原来的数组 参数start 从0开始 end结束
+        var arr3=[31,4,6,8,0];
+        var newArr3=arr3.slice(0,3);//[31,4,6]
+        console.log(newArr3);
+        console.log(arr3.slice(0));//[31,4,6,8,0]
+
+        //splice() 删除或者替换数组的某些项目
+        var arr4=[1,3,5,7];
+        //修改原数组 删除下标为一的元素 有2个参数 参数一 从下标开始  参数二 删除几个
+        arr4.splice(1,2);
+        console.log("arr4==>",arr4);
+
+        // 替换
+        var arr5=[1,3,5,7,9];
+        arr5.splice(1,2,'str');
+        console.log('arr5==>',arr5);//[1,str,7,9]
+
+        var arr6=[1,2,3,4];
+        arr6=[];
+        console.log(arr6);
+	</script>
+</body>
+</html>

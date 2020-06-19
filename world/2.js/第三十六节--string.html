@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>string</title>
+</head>
+<body>
+	<script>
+		var str='how are you ,and you?';
+
+		//获取相应位置的字符 空格也算字符
+		console.log(str.charAt(5));
+
+		//charCodeAt 返回指定位置的字符Unicode编码
+		console.log(str.charCodeAt(5));//r对应114
+        
+        //从前往后查找a的下标 空格也算
+        console.log(str.indexOf('a'));//4
+
+        //从后往前查找a下标
+        console.log(str.lastIndexOf('a'));//13
+
+        // concat 连接字符串
+        var str2=' 张珊';
+        console.log(str.concat(str2));
+	</script>
+</body>
+</html>
