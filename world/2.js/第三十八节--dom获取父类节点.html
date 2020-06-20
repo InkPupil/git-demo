@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>dom获取父类节点</title>
+	<style>
+		.box{
+			background-color: blue;
+			height: 200px;
+		}
+		.inner-box{
+			height: 100px;
+			background-color: pink;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		我是一个盒子
+		<div class="inner-box">
+			我是一个内部盒子
+		</div>
+	</div>
+	<script>
+		//一个子元素只能有一个父类节点
+		var inner=document.getElementsByClassName('inner-box')[0];//获取节点
+		console.log(inner);
+
+		//parentNode 获取父类节点
+        var innerParent=inner.parentNode;
+        console.log(innerParent);
+
+        var maxParent=innerParent.parentNode;
+        console.log(maxParent);
+	</script>	
+</body>
+</html>
