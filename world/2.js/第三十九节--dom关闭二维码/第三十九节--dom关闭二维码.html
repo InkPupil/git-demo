@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>dom关闭二维码</title>
+	<style>
+		*{
+			padding: 0;
+			margin: 0;
+		}
+        .box{
+        	width: 100px;	
+        	height: 50px;
+        	background-color: pink;
+        	border-radius: 50%;
+        	text-align: center;
+        	font-size: 20px;	
+        }
+        .toch{
+        	display: none;
+
+        }
+	</style>
+</head>
+<body>
+	<div class="box">
+		查看图片
+	</div>
+	<div class="toch">
+		<img src="img/ten.jpg" alt="">
+	</div>
+	<script>
+		var box=document.getElementsByClassName('box')[0];
+		var toch=document.getElementsByClassName('toch')[0];
+		// onclick点击事件
+		box.onclick=function(){
+			toch.style.display='block';
+			this.style.display='none';
+		}
+		toch.onclick=function(){
+			this.style.display='none';
+			box.style.display='block';
+		}
+	</script>
+</body>
+</html>
