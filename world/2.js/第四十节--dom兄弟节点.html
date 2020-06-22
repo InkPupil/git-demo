@@ -7,6 +7,28 @@
 	<title>dom兄弟节点</title>
 </head>
 <body>
-	
+	      <ul>
+          <li>li-1</li>
+          <li class="li2">li-2</li>
+          <li>li-3</li>
+          <li>li-4</li>
+          <li>li-5</li>
+      </ul>
+        <script>
+  //获取li2节点的兄弟节点
+  //nextSibling 嫡出
+  //ie6.7.8中指下一个元素
+  //ie 6,7,8中指下一个元素节点(标签,注释)  在火狐,ie9 以后的都指的是下一个字点包括空文档和换节字符
+  var li2=document.getElementsByClassName('li2')[0];
+  console.log(li2.nextSibling);//换行节点
+  //nextElementSibling 在火狐 谷歌 ie9 都指的是下一个元素节点 庶出
+  console.log(li2.nextElementSibling);
+  //兼容问题  获取下一个元素节点
+  var nextE=li2.nextElementSibling||li2.nextSibling;
+  //获取上一个元素的节点
+  //  previousElementSibling||previousSling
+
+
+  </script> 
 </body>
 </html>
