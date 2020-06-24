@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>dom获取除自己所有子元素节点</title>
+</head>
+<body>
+    <ul class="ule">
+        <li class="li-1">1</li>
+        <li class="li-2">2</li>
+        <li class="li-3">3</li>
+        <li class="li-4">4</li>
+        <li class="li-5">5</li>
+        <li class="li-6">6</li>
+    </ul>
+    <script>
+        //获取除li-3所有子元素节点
+        // 1.先获取li-3的节点
+        var liTh=document.getElementsByClassName('li-3')[0];
+        // console.log(liTh);
+        //第一种封装
+        // function mydom1(el){
+        //   var arr=[];
+        //   var lis=el.parentNode;
+        //   var lic=lis.children;
+        //   console.log(lis);
+        //   for(var i=0;i<lic.length;i++){
+        //      if(lic[i].nodeType===1){
+        //          if(lic[i]!=el){
+        //              arr.push(lic[i])
+        //          }
+        //      }   
+        //   }
+        //   console.log(arr)
+        //   return arr;
+        // }
+        // console.log(mydom1(liTh));
+
+        //第二种封装(此处有争议 锁的思想运用的不恰当）
+        function mydom2(el){
+            var arr=[];
+            var lis=el.parentNode;
+            var lic=lis.children;
+            var lock=true;
+            for(var i=0;i<lic.length;i++){
+                if(lic[i].nodeType===1){
+                    if(lic[i]===el){
+                        // console.log(lic[i])
+                        lock=true
+                    }else{
+                        if(lock){
+                                arr.push(lic[i]);
+                        }
+                    } 
+                    
+                }
+            }
+            return arr;
+        }
+        console.log(mydom2(liTh));
+    </script>
+</body>
+</html>
