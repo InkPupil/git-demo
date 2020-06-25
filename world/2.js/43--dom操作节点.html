@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>dom操作节点</title>
+    <style>
+      
+    </style>
+</head>
+<body>
+    <div class="box">
+        我是一个盒子
+    </div>
+    <div class="btn">添加图片</div>
+    <div class="btn1">删除图片</div>
+    <div class="btn2">克隆节点</div>
+    <script>
+      var box=document.getElementsByClassName("box")[0];
+      var btn=document.getElementsByClassName('btn')[0];
+      var btn1=document.getElementsByClassName('btn1')[0];
+      var btn2=document.getElementsByClassName('btn2')[0];
+      
+    //   创建一个时间节点
+    var img1=document.createElement('img');
+    var p1=document.createElement('p');
+    img1.src="imgs/one.jpg";
+
+    //点击插入节点
+    btn.onclick=function(){
+        //插入节点
+        box.appendChild(img1);//同一个节点只能插入一次
+        box.insertBefore(p1,img1);//如果参考对象为null那么将在节点最后插入一个节点
+    };
+
+    //删除节点
+    btn1.onclick=function(){
+        //    在知道父类节点的情况下
+        // box.removeChild(img1);
+        //不知道父节点的请况下
+        img1.parentNode.removeChild(img1);
+    };
+
+    //克隆节点 调用函数cloneNode()得到一个新节点
+    btn2.onclick=function(){
+        // 调用函数cloneNode()
+        var boxclone=box.cloneNode(true);
+        document.body.appendChild(boxclone);
+    }
+    </script>
+</body>
+</html>
