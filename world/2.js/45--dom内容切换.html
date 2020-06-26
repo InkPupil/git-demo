@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dom内容切换</title>
+</head>
+<body>
+    <input type="text">
+    <div class="box">前端大世界</div>
+    <div class="btn1">设置input的值</div>
+    <div class="btn2">设置box的值</div>
+    <div class="btn3">插入标签</div>
+    <script>
+     var inp=document.getElementsByTagName('input')[0];
+     var boxe=document.getElementsByClassName('box')[0];
+     var btn1=document.getElementsByClassName('btn1')[0];
+     var btn2=document.getElementsByClassName('btn2')[0];
+     var btn3=document.getElementsByClassName('btn3')[0];
+    
+    //点击随机插入0-9随机整数
+     btn1.onclick=function(){
+         inp.value=Math.floor(Math.random()*10);
+     };
+
+     //设置box内显示的内容 innerText会替换之前文本所有内容
+     btn2.onclick=function(){
+         boxe.innerText="明天有大雨";
+        //  boxe.innerText='天气依然很热';
+     };
+
+     //在box盒子中插入p标签
+     btn3.onclick=function(){
+       boxe.innerHTML='<p>前端大世界</p>'
+     };
+    </script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dom切换图片</title>
+</head>
+<body>
+    <img src="imgs/one.jpg" alt="">
+   <script>
+     var imgel=document.getElementsByTagName('img')[0];
+     var imgarr=['one.jpg','two.jpg','three.jpg'];
+     imgel.onclick=function(){
+         var index=Math.floor(Math.random()*3);
+         imgel.src='imgs/'+imgarr[index];
+     }
+   </script> 
+</body>
+</html>
