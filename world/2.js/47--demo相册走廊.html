@@ -4,10 +4,78 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>相册走廊</title>
+    <style>
+      *{
+        padding: 0;
+        margin: 0;
+      }
+      .box{
+        width: 100%;
+      }
+      .inner-box{
+        width: 800px;
+         margin: 0 auto;
+      }
+      .img1{
+        width: 100%;
+        height: 100%;
+      }
+      .inner-box1{
+       width: 1300px;
+        margin: 0 auto;
+      }
+      .imgs{
+        list-style: none;
+        overflow: hidden;
+      }
+      .imgs .img-item{
+        float: left;
+        width: 150px;
+        height: 100px;
+      }
+      .imgs .img-item .img{
+        /* background-size: cover; */
+        width: 100%;
+      }
+    </style>
 </head>
 <body>
+  <div class="box">
+    <div class="inner-box">
+      <img class="img1" src="imgs/one.jpg" alt="">
+    </div>
+    <div class="inner-box1">
+       <ul class="imgs">
+
+       </ul>
+    </div>
+  </div>
   <script>
+      var img1=document.getElementsByClassName('img1')[0];
+      var imgs=document.getElementsByClassName('imgs')[0];
+      var imgArr=['one.jpg','two.jpg','three.jpg','four.jpg','five.jpg','six.jpg','seven.jpg','eight.jpg','nine.jpg'];
+      var str='';
+      for(var i=0;i<imgArr.length;i++){
+          str +='<li id="li'+i+'" class="img-item"><img src="imgs/'+imgArr[i]+'"></img></li>'
+      }
+      // console.log(str);
+      imgs.innerHTML=str;
       
+      //循环绑定事件
+      var lis=imgs.children;
+      for(var j=0;j<lis.length;j++){
+        lis[j].onclick=function(){
+          //方法一
+          // var index=this.id.slice(2);
+          // console.log(index);
+          // img1.src='imgs/'+imgArr[index]
+
+          //方法二
+          console.log(this.children[0]);
+          var src=this.children[0].src;
+          img1.src=src
+        }
+      }
   </script>  
 </body>
 </html>
