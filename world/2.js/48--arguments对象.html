@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>arguments对象</title>
+</head>
+<body>
+
+    <script>
+      //函数的实参对象
+      add(1,2);
+      function add(x,y){
+        //  console.log(x);
+         console.log(arguments);
+         console.log(typeof arguments);//伪数组具备length属性
+         console.log(arguments instanceof Array);//false //arguments不是一个数组
+         console.log(arguments[0]);
+         console.log(arguments.length)//返回的是实参的个数
+      }
+
+      //instanceof 用来检测数组
+      var arr=[3,4];
+      console.log(arr instanceof Array);
+    </script>
+</body>
+</html>
