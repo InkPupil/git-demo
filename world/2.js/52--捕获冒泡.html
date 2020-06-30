@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>捕获冒泡</title>
+    <style>
+        .ule{
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+    <ul class="ule">
+        我是ul标签
+        <li class="lie">
+            我是li标签
+            <p class="pe">我是p标签</p>
+        </li>
+    </ul>
+    <script>
+        var ule=document.getElementsByClassName('ule')[0];
+        var lie=document.getElementsByClassName('lie')[0];
+        var pe=document.getElementsByClassName('pe')[0];
+
+        //第三个参数默认不写为false  true从外往内 false从内往外
+        ule.addEventListener('click',function(){console.log('我是ul标签')},true);
+        lie.addEventListener('click',function(){console.log('我是li标签')},true);
+        pe.addEventListener('click',function(){console.log('我是p标签'),false});
+    </script>
+</body>
+</html>

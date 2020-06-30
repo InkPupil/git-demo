@@ -28,15 +28,14 @@
          //自执行函数
         //  (function(num){console.log(num)})(2);
 
-         //循环绑定事件
-       
+         //循环绑定事件      
          for(var j=0;j<lie.length;j++){
-
              lie[j].onclick=(function(n){console.log(n)
              //闭包 在函数外也能用函数里的变量
              return function(){console.log(n)}
              })(j);
          }
+         
         //自己封装获取孩子节点
         function myChildren(arr){
             var chi=arr.children;

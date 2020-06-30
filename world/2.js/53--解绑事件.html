@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>解绑事件</title>
+</head>
+<body>
+    <div class="box">
+      我是一个盒子
+    </div>
+    <div class="btn">
+     解绑事件
+    </div>
+    <script>
+        var box=document.getElementsByClassName('box')[0];
+        var btn=document.getElementsByClassName('btn')[0];
+         //添加事件
+         box.addEventListener('click',foo,false);
+        //事件函数
+        function foo(){
+            console.log('我是一个盒子,名字叫做box')
+        };
+        
+        //事件解绑  removeEventListener 必须同类型(同是冒泡或者同是捕获) 
+        //事件类型    处理程序   冒泡捕获   必须  全部一致  才能解除
+        btn.onclick=function(){
+            box.removeEventListener('click',foo,false);
+            console.log('解绑完成');
+        }
+    </script>
+</body>
+</html>

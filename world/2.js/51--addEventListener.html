@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>addEventListener</title>
+</head>
+<body>
+    <div class="box">
+        我是一个盒子
+        <div class="inner-box">我是一个内部盒子</div>
+    </div>
+    <script>
+        var box=document.getElementsByClassName('box')[0];
+        var innerbox=document.getElementsByClassName('inner-box')[0];
+
+        //addEventListener  true从外到内  false从内到外
+        box.addEventListener('click',function(){alert('外部盒子')},false);
+        innerbox.addEventListener('click',function (){alert('aaa')},false);
+    </script>
+</body>
+</html>
