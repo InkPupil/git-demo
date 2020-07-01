@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>倒计时</title>
+</head>
+<body>
+    <p>距离2020年10月1日还有</p>
+    <p class="stamp"></p>
+    <script>
+        var pel=document.getElementsByClassName('stamp')[0];
+        var oldTime='2020-10-1 0:00';
+        console.log(oldTime);
+        var oldDate=new Date(oldTime);
+        console.log(oldDate);
+        var oldTimeStamp=oldDate.getTime();
+        console.log(oldTimeStamp);
+
+        var stampStr='';
+        
+        setInterval(() => {
+            var nowDate=new Date();
+            // console.log(nowDate)
+            
+            var nowTimeStamp=nowDate.getTime();
+            console.log(nowTimeStamp);
+
+            // 算取时间差
+            var stamp=oldTimeStamp-nowTimeStamp;
+            console.log(stamp);
+
+            //换算小时
+            var hours_MS=60*60*1000;
+            var hours=Math.floor(stamp/hours_MS);
+            
+            // 换算分钟
+            var min_MS=60*1000;
+            var min=Math.floor(stamp%hours_MS/min_MS);
+
+            // 换算秒数
+            var mm=Math.floor(stamp%min_MS/1000);
+            stampStr=wap(hours)+':'+wap(min)+':'+wap(mm)
+            pel.innerHTML=stampStr;
+        }, 1000);
+        function wap(n){
+            return n<10?'0'+n:n
+        }
+    </script>
+</body>
+</html>
