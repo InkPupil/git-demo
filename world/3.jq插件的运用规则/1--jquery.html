@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jauery</title>
+    <script src="js/jquery-3.4.1.js"></script>
+</head>
+<body>
+    <script>
+        window.onload=function(){
+          console.log('一只蜗牛的自我救赎')
+        };
+        window.onload=function(){
+            alert('前段大世界')
+        }; 
+        //window.onload必须等到页面包括图片的所有元素加载完毕后才执行
+        //而jquery入口函数不存在覆盖问题
+        $(document).ready(function(){
+            console.log('小蜗牛')
+        });
+        //不等图片加载完就执行 (框架加载完就执行)
+        $(document).ready(()=>{
+            alert('救赎')
+        });
+        
+        //简写
+        $(()=>{
+            alert('大世界')
+        })
+    </script>
+</body>
+</html>
