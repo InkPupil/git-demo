@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jq操作dom</title>
+    <script src="js/jquery-3.4.1.js"></script>
+</head>
+<body>
+    <p>我的世界</p>
+    <script>
+        var p1=document.getElementsByTagName('p')[0];
+        console.log(p1);
+
+        //事件源 封装成jq对象
+        console.log($('p'));
+        $('p').click(function(){
+            $('p').css('color','red')
+        });
+        $('p').addClass('active');
+    </script>
+</body>
+</html>

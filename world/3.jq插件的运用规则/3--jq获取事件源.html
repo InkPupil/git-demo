@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jq获取事件源</title>
+    <script src="js/jquery-3.4.1.js"></script>
+</head>
+<body>
+    <h2>前端大世界</h2>
+    <p class="pe">欢迎来到前端</p>
+    <p id="pi" class="text">今天天气挺好</p>
+    <div class="box">
+        我是外部盒子
+        <div class="inner-box">
+            我是一个内部盒子
+        </div>
+    </div>
+    <div class="inner active">
+
+    </div>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    <script>
+        //获取事件源
+
+          //通过标签名获取
+          console.log($('h2'));
+
+          //通过class名获取
+          console.log($('.pe'))
+
+          //通过id获取
+          console.log($('#pi'));
+
+          //后代选择器获取
+          console.log($('.box .inner-box'));
+
+          //并集选择器获取
+          console.log($('.inner.active'));
+
+          //多选选择器
+          console.log( $('h2,p'));
+
+          $('li').click(function(){
+          $(this).css('color','red');
+   });
+    </script>
+</body>
+</html>
