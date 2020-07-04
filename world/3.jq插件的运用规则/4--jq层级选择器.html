@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jq层级选择器</title>
+    <script src="js/jquery-3.4.1.js"></script>
+    <style>
+        /* +紧挨着的下一个兄弟节点 */
+        /* ~后面的所有兄弟节点 */
+        /* 空格 后代 (包括孙子) */
+        /* > 所有子代 (只包括儿子) */
+
+        .item.active+.item1{
+            color: red;
+        }
+        .item.active~.item1{
+            color: red;
+        }
+        .box div{
+            width: 200px;
+            height: 100px;
+            background-color:pink;
+        }
+        .box>div{
+            width: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <ul class="ule">
+        <li class="item">1</li>
+        <li class="item active">2</li>
+        <li class="item1">3</li>
+        <li class="item ac1">4</li>
+        <li class="item">5</li>
+    </ul>
+    <div class="box">
+        <div class="w-box">
+            <div class="inner-box"></div>
+        </div>
+    </div>
+    <script>
+       $('.item.active+.item1').css('color','blue');
+       console.log($('.item.active+li'));
+       console.log($('.item.active~li'));
+       console.log($('.box div'));
+       console.log($('.box>div'));    
+    </script>
+</body>
+</html>
