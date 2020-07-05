@@ -15,7 +15,22 @@
         <li class="li-item">第五个</li>
     </ul>
     <script>
+        //选择当前的
+        $('li:eq(0)').css('color','red');
+
+        //选择当前后面的
+        $('li:gt(2)').css('color','pink');
+
+        //选择当前上边的
+        $('li:lt(2)').css('color','blue');
         
+        //选择奇数行
+        $('li:odd').css('color','orange');
+        
+        //从0开始的偶数行
+        $('li:even').css('color','yellow');
+        $('li:first').css('color','red');
+        $('li:last').css('color','black');
     </script>
 </body>
 </html>

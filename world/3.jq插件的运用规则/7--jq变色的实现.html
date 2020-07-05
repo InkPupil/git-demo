@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jq变色的实现</title>
+    <script src="js/jquery-3.4.1.js"></script>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        ul li{
+            width: 200px;
+            height: 100px;
+            background-color: pink;
+            margin: 20px;
+            color: #fff;
+        }
+        li{
+            display: block;
+            width: 50px;
+            height: 50px;
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>一</li>
+        <li>二</li>
+        <li>三</li>
+        <li>四</li>
+        <li>五</li>
+    </ul>
+    <script>
+       var colorBefore='';
+       $('li').mouseenter(function(){
+           colorBefore=$(this).css('backgroundColor');
+           $(this).css('backgroundColor','yellow')
+       });
+       $('li').mouseleave(function(){
+           $(this).css('backgroundColor',colorBefore);
+       })
+    </script>
+</body>
+</html>

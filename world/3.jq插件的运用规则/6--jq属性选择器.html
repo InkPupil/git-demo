@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jq属性选择器</title>
+    <script src="js/jquery-3.4.1.js"></script>
+</head>
+<body>
+    <p title="我是一个p标签">1</p>
+    <p title="我是2号">2</p>
+    <p title="3号">3</p>
+    <p>4</p>
+    <p>5</p>
+    <p>6</p>
+    <a href="baidu" title="a标签">1</a>
+    <a href="baidu" title="2号标签">2</a>
+    <script>
+    $('p[title]').css('color','red');//具备属性title的所有p标签
+    $('p[title="我是2号"]').css('color','pink');
+    $('p[title!="我是2号"]').css('color','green');//没有title属性的p标签
+    $('p[title^="我"]').css('color','red');//以....开头
+    $('p[title$="号"]').css('color','blue');//以.....结尾
+    $('p[title*="是"]').css('color','black');//包含....
+    $('a[href][title="a标签"]').css('color','red');//选择所有包含指定属性的元素,都满足才会被选中
+    </script>
+</body>
+</html>
