@@ -4,11 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>jq取值设值</title>
+    <script src="js/jquery-3.4.1.js"></script>
     <style>
         
     </style>
 </head>
 <body>
-    
+    <div class="box" title="天气挺好的">
+          天气有雨
+    </div>
+    <input type="text">
+    <script>
+        var box=$('.box');
+
+        //改变值
+         box.text('前端大世界');
+ 
+        //val 改变value的值
+        $('input').val('欢迎来到前端的世界');
+        console.log($('input').val());
+        
+        //html innerhtml
+        box.html('天生');
+        console.log(box.html())
+    </script>
 </body>
 </html>

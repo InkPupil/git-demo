@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jq操作类名</title>
+    <script src="js/jquery-3.4.1.js"></script>
+    <style>
+       .title {
+            width: 100px;
+            height: 50px;
+            line-height: 50px;
+        }
+
+        .danger {
+            color: red;
+        }
+
+        .strong {
+            font-weight: bolder;
+        }
+    </style>
+</head>
+<body>
+    <p class="title">
+        前段大世界
+    </p>
+    <div class="btn1">添加danger类名</div>
+    <div class="btn2">添加danger strong</div>
+    <div class="btn3">删除danger类</div>
+    <div class="btn4">toggleClass(有则删除无则添加)</div>
+    <div class="btn5">判断是否存在类，</div>
+    <script>
+        var title=$('.title');
+        
+        //addClass 可以同时添加一个或则多个类名 不会影响原类名
+        $('.btn1').click(function(){
+            title.addClass('danger');
+        });
+        $('.btn2').click(function(){
+            title.addClass('danger strong');
+        });
+      
+        //removeClass 从被选元素删除一个或多个类
+        $('.btn3').click(function () {
+            $('.title').removeClass('danger');
+        });
+
+        // toggleClass() - 对被选元素进行添加/删除类的切换操作
+        // 有则删除  无则添加
+        $('.btn4').click(function () {
+            $('.title').toggleClass('danger');
+        });
+
+        // hasClass()- 判断是否存在类，
+        $('.btn5').click(function () {
+            console.log($('.title').hasClass('danger')); // false  true
+        })    
+    </script>
+</body>
+</html>
