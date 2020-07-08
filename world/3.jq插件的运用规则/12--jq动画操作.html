@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jq动画操作</title>
+    <script src="js/jquery-3.4.1.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+     .box{
+         width: 500px;
+         height: 500px;
+         background-color: pink;
+         margin: 50px auto;
+         text-align: center;
+         line-height: 500px;
+         color: aquamarine;
+         font-weight: lighter;
+         font-size: 60px;
+     }
+     .box1{
+         text-align: center;
+     }
+     .btn{
+         display: inline-block;
+         border: 1px solid #333;
+         margin: 20px;
+     }
+    </style>
+</head>
+<body>
+    <div class="box">
+       我是一个盒子
+    </div>
+    <div class="box1">
+        <div class="btn btn1">hide(隐藏)</div>
+        <div class="btn btn2">show(出现)</div>
+        <div class="btn btn3">slideDown(滑入)</div>
+        <div class="btn btn4">slideUp(滑出)</div>
+        <div class="btn btn5">slideToggle(滑入滑出切换)</div>
+        <div class="btn btn6">fadeIn(淡入)</div>
+        <div class="btn btn7">fadeOut(淡出)</div>
+        <div class="btn btn8">fadeToggle(淡入淡出)</div>
+        <div class="btn btn9">fadeTo(改变透明度)</div>
+    
+    </div>
+ <script>
+    var box=$('.box');
+
+     //hide让匹配的元素隐藏起来 与show的方法书写方式一样
+    $('.btn1').click(function(){
+        box.hide(2000,function(){
+            console.log('消失')
+        });//后面的参数几秒消失
+    });
+
+     //      <!-- show方法
+     //         作用：让匹配的元素展示出来
+     //         	$(xx).show(2000)
+     //         	$(xx).show()		slow：600ms、normal：400ms、fast：200ms
+     //         	$(xx).show(2000,function(){});
+     //         // 动画完成之后 执行  function 的内容
+     //         	$(xx).show() -->
+    $('.btn2').click(function(){
+       box.show(2000,function(){
+           console.log('出现')
+       })
+    });
+
+     //$(xx).slideDown(speed,callback);动画效果滑入
+     //注意：省略参数或者传入不合法的字符串，那么则使用默认值：400毫秒（同样适用于fadeIn/slideDown/slideUp）
+    $('.btn3').click(function(){
+        //   console.log('11')
+          box.slideDown(800);
+    });
+
+    //$(xx).slideUp(); 动画效果滑出
+    $('.btn4').click(function(){
+         box.slideUp(800);
+    });
+
+    //  滑入滑出切换动画效果
+    //  $(xx).slideToggle(speed,callback); -->
+    $('.btn5').click(function(){
+         box.slideToggle(800);
+    });
+
+     // 淡入动画效果   $(xx).fadeIn(speed, callback);   
+     $('.btn6').click(function(){
+         box.fadeIn(800);
+     });  
+
+     // 淡出动画效果  $(xx).fadeOut(1000);  
+     $('.btn7').click(function(){
+         box.fadeOut(1000);
+     });
+
+     //淡入淡出切换动画效果 	$(xx).fadeToggle('fast',function(){});
+     $('.btn8').click(function(){
+         box.fadeToggle(1000);
+     });
+    
+    // 4改变透明度到某个值
+    // 作用：调节匹配元素的不透明度 
+    // $(xx).fadeTo(1000, .5); //  0全透，1全不透
+    //  -->
+    $('.btn9').click(function () {
+            box.fadeTo(800, .5);
+        })
+ </script>
+</body>
+</html>
