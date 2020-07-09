@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jq节点操作</title>
+    <script src="js/jquery-3.4.1.js"></script>
+</head>
+<body>
+    <div class="box">
+        盒子一号
+    </div>
+    <div class="box1">
+        盒子二号
+    </div>
+    <ul class="ule">
+        <li></li>
+        <li class="li-item"></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <script>
+        //创建节点
+        var node=document.createElement('p');
+        node.innerText='我是原生p标签';
+        var $node=$('<p>我是一个p标签</p>');
+        
+        //追加节点
+        $('.box').append('<p>前端大世界</p>');//直接追加
+        $('.box').append(node);
+        $('.box').append($node);
+        //第二次追加$node节点的时候会把原来的节点删掉
+        $('.box1').append($node);
+
+        //如果是给多个元素追加元素 那么方法的内部会复制多份这个元素,然后追加到多个目标中去
+        $('li').append('<p>前端大世界</p>');
+        
+        //appendTo() 把$(selector)追加到node中去
+        var $p=$('<p>我是用appendTo追加进去的</p>');
+        $p.appendTo($('.box'));
+
+        //prepend()  在元素的第一个子元素前面追加内容或者节点
+        //$(selector).prepend(node);
+        $('.ule').prepend('<p>我是一个p标签prepend</p>');
+
+        //after()  在被选元素 作为兄弟节点插入内容或者节点
+        //$(selector).after(node);
+        $('.li-item').after('<li>我是一个用after插入的兄弟节点</li>');
+
+        //before() 作用：在被选元素之前，作为兄弟元素插入内容或节点
+        //$(selector).before(node);
+        $('.li-item').before('<li>我是一个用before插入的节点</li>');
+    </script>
+</body>
+</html>

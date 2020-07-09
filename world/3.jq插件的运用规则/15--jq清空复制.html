@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jq清空复制</title>
+    <script src="js/jquery-3.4.1.js"></script>
+</head>
+<body>
+    <div class="box">
+        我是一个box
+        <div class="inner-box">
+            我是一个innerbox
+            <div class="w-box">
+                我是一个wbox
+            </div>
+        </div>
+    </div>
+    <script>
+        //清空box的后代
+        // $('.box').empty();
+
+        //插入html 但是后替换里面的内容
+        // $('.inner-box').html('111')
+
+        //$('.box').remove();  把自己也删除了
+        // $('.box').remove()
+
+        //克隆
+        console.log($('.box').clone());
+        $('body').append($('.box').clone());
+    </script>
+</body>
+</html>

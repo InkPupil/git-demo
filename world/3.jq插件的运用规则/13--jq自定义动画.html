@@ -5,8 +5,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>jq自定义动画</title>
     <script src="js/jquery-3.4.1.js"></script>
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+        }
+        .box{
+            position: relative;
+            width: 500px;
+            height: 500px;
+            margin: 50px auto;
+            background-color: aquamarine;
+            font-size: 50px;
+            line-height: 500px;
+            text-align: center;
+            color: chartreuse;
+        }
+        .box1{
+          text-align: center;
+        }
+        .btn{
+            display: inline-block;
+           border:1px solid chartreuse;
+           margin: 20px;
+        }
+    </style>
 </head>
 <body>
-    
+    <div class="box">
+         前端大世界
+    </div>
+    <div class="box1">
+        <div class="btn btn1">动画开始</div>
+        <div class="btn btn2">动画停止</div>
+    </div>
+    <script>
+        var box=$('.box');
+
+        // 语法：$(selector).animate(styles,speed,easing,callback)
+        //第一个参数表示：要执行动画的CSS属性（必选）
+        //第二个参数表示：执行动画时长（可选）
+        //第三个参数表示：动画执行完后立即执行的回调函数（可选）
+        
+        $('.btn1').click(function(){
+            box.animate({
+                width:600,
+                left:'640px',
+                fontSize:'60px'
+            },2000,'linear');
+            //第一个执行完 才会执行下一个
+            box.animate({
+               width:400,
+               height:400,
+               lineHeight:400,
+               left:'0px',
+               fontSize:'30px' 
+            },2000,'linear');
+        });
+        $('.btn2').click(function(){
+            // $('.box').stop(true, false);
+            console.log('停止')
+            box.stop(true,false)
+            //.stop(stopAll,goToEnd);
+            //stopAll 是否全部停止, 默认false 停止队列中所有的动画
+            //goToEnd 是否将停止当前的动画 停止在当前动画的最后一个状态 默认false
+        })
+    </script>
 </body>
 </html>
