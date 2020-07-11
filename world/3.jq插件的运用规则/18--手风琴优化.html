@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jq手风琴优化</title>
+    <script src="js/jquery-3.4.1.js"></script>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+        }
+       ul{
+           list-style: none;
+           width: 1200px;
+           height: 400px;
+           overflow: hidden;
+           margin: 100px auto;
+       }
+       ul li{
+           float: left;
+           width: 200px;
+       }
+       ul li img{
+           height: 100%;
+       }
+    </style>
+</head>
+<body>
+    <ul>
+        <li class="li-item"><img src="img/m1.jpg" alt=""></li>
+        <li class="li-item"><img src="img/m2.jpg" alt=""></li>
+        <li class="li-item"><img src="img/m3.jpg" alt=""></li>
+        <li class="li-item"><img src="img/m4.jpg" alt=""></li>
+        <li class="li-item"><img src="img/m5.jpg" alt=""></li>
+        <li class="li-item"><img src="img/m6.jpg" alt=""></li>
+    </ul>
+    <script>
+        var currentLi=null;
+        var timer=null;
+        $('.li-item').mouseenter(function(){
+            //这里的this指向当前的dom元素
+            var self=this;
+            clearTimeout(timer);
+            //延迟hover,停留200ms才会触发 动画
+            //每进入一种新的图片,都会清掉之前的timer
+            timer=setTimeout(function(){
+                currentLi=self;
+                //这里边 this指向会发生变化
+                $(self).siblings().animate({
+                    width:'100px'
+                });
+                $(self).animate({
+                    width:'700px'
+                })
+            },200);
+        });
+        $('ul').mouseleave(function(){
+            //这里this指向当前的dom
+            clearTimeout(timer);
+            $(currentLi).animate({
+                width:'200px'
+            })
+            $(currentLi).siblings().animate({
+                width:'200px'
+            })
+        });
+    </script>
+</body>
+</html>

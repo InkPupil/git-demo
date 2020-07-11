@@ -7,6 +7,25 @@
     <script src="js/jquery-3.4.1.js"></script>
 </head>
 <body>
-    <input type="text">
+    <!-- 单选框 -->
+    <input class="checkbox" type="checkbox">
+
+    <input class="radio" name="sex" type="radio">
+    <input class="radio1" name="sex" type="radio">
+    <div class="btn">
+        获取单选和多选框的选中状态
+    </div>
+    <script>
+        //prop 获取当前input的选中状态 选中为true 未选中为false
+       $('.btn').click(function(){
+           console.log($('.checkbox').prop('checked'));
+           console.log($('.radio').prop('checked'));
+           console.log($('.radio1').prop('checked'));
+           console.log($('.radio:checked'));
+       });
+
+       //如何获取被选中 输入框
+       console.log($('.radio:checked'));
+    </script>
 </body>
 </html>
