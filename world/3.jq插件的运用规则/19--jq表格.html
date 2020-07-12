@@ -5,8 +5,181 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>jq表格</title>
     <script src="js/jquery-3.4.1.js"></script>
+    <style>
+      .box{
+          width: 100%;
+          /* background-color: pink; */
+      }
+      .box .inner-box{
+          width: 500px;
+          margin: 0 auto;
+          /* background-color: yellow; */
+          text-align: center;
+      }
+      table{
+          /* text-align: center; */
+      }
+      .btn{
+          border: solid aquamarine;
+          width: 100px;
+          /* text-align: center; */
+          margin: 16px auto;
+          display: inline-block;
+      }
+      .mask{
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: black;
+          display: none;
+      }
+      .mask .form{
+          width: 600px;
+          height: 400px;
+          margin: 100px auto;
+          overflow: hidden;
+          background-color: #fff;
+          text-align: center;
+      }
+      .form .item-form{
+            width: 400px;
+            margin: 50px auto;
+        }
+        .save,.cancel{
+            margin-left:30px;
+        }
+    </style>
 </head>
 <body>
-    
+    <div class="box">
+        <div class="inner-box">
+         <table border="1" cellpadding='25' cellspacing='0'>
+            <caption>学生报名表</caption>
+            <tr>
+                <th>序号</th>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>性别</th>
+                <th>操作</th>
+            </tr>
+         </table>
+         <div class="btn1 btn">追加数据</div>
+         <div class="btn2 btn">新增数据</div>
+        </div>
+     
+    </div>
+    <div class="mask">
+        <div class="form">
+            <div class="item-form">
+               姓名: <input type="text" class="name">
+            </div>
+            <div class="item-form">
+               年龄: <input type="text" class="age">
+            </div>
+            <div class="item-form">
+               性别: 男:<input type="radio" class="sex" name="sex" value="1">  女:<input type="radio" name="sex" class="sex">  
+            </div>
+            <button class="save">确定</button>
+            <button class="cancel">取消</button>
+        </div>
+    </div>
+    <script>
+        var users = [
+            {
+                name:'张三',
+                age:27,
+                sex:'男'
+            },
+            {
+                name:'李四',
+                age:28,
+                sex:'男'
+            },
+            {
+                name:'小红',
+                age:18,
+                sex:'女'
+            }
+        ];
+
+        var newUsers = [
+            {
+                name:'王五',
+                age:26,
+                sex:'男'
+            },
+            {
+                name:'赵六',
+                age:22,
+                sex:'男'
+            },
+            {
+                name:'小花',
+                age:20,
+                sex:'女'
+            }
+        ];
+        var istrue=false;
+        var temp=null;
+        addTr(users);
+
+        //添加原始数据
+        function addTr(str){
+            for(var i=0;i<str.length;i++){
+                var strA=str[i];
+                //引用拼接字符串方法
+                createTr(strA)
+            }
+        };
+        //btn1追加数据
+        $('.btn1').click(function(){
+            if(newUsers.length>0){
+                var user=newUsers.shift();
+                createTr(user);
+                // console.log(newUsers.shift());
+            }else{
+                alert('没有更多信息了')
+            }
+        });
+        //btn2新增数据
+        $('.btn2').click(function(){
+            $('.mask').fadeIn('slow');
+            istrue=false;
+        });
+        //拼接字符串
+        function createTr(val){
+          var str='<tr><td></td><td>'+val.name+'</td><td>'+val.age+'</td><td>'+val.sex+
+          '</td><td><button class="remove" onclick="del(this)">删除</button><button class="edit" onclick="edit(this)">编辑</button></td></tr>';
+          $('table').append(str);
+        };
+        
+        //mask 弹窗取消按钮
+        $('.cancel').click(function(){
+            cancel()
+        })
+        //关闭弹窗 清空表单
+        function cancel(){
+            // 关闭弹窗
+            // 清空表单
+            $('.username').val('');
+            $('.age').val('');
+            // 怎么取消单选框选中状态
+            $('.sex').prop('checked',false);
+            //fadeOut关闭动画
+            $('.mask').fadeOut('slow');
+        };
+
+        //删除数据
+        function del(val){
+            $(val).parent().parent().remove();
+        };
+
+        //编辑按钮
+        function edit(val){
+           
+        }
+    </script>
 </body>
 </html>
