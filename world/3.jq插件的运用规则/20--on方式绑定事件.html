@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>on方式绑定事件</title>
+    <script src="js/jquery-3.4.1.js"></script>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+            background-color: aquamarine;
+        }
+        .box1{
+            margin-top: 30px;
+            text-align: center;
+        }
+       /* .btn1{
+          text-align: center;
+       } */
+    </style>
+</head>
+<body>
+    <div class="box">
+
+    </div>
+    <div  class="box1">
+
+        <button class="btn1">解绑事件</button>
+    </div>
+    <script>
+        //on方式绑定事件
+        $('.box').on('mouseenter',function(){
+            console.log('前端大世界')
+        });
+       
+       //off方式解绑事件
+       $('.btn1').click(function(){
+           $('.box').off('mouseenter')
+       })
+    </script>
+</body>
+</html>

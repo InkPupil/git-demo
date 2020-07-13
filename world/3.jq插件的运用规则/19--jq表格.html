@@ -145,8 +145,10 @@
         });
         //btn2新增数据
         $('.btn2').click(function(){
+            cancel();
             $('.mask').fadeIn('slow');
             istrue=false;
+
         });
         //拼接字符串
         function createTr(val){
@@ -158,12 +160,12 @@
         //mask 弹窗取消按钮
         $('.cancel').click(function(){
             cancel()
-        })
+        });
         //关闭弹窗 清空表单
         function cancel(){
             // 关闭弹窗
             // 清空表单
-            $('.username').val('');
+            $('.name').val('');
             $('.age').val('');
             // 怎么取消单选框选中状态
             $('.sex').prop('checked',false);
@@ -178,8 +180,36 @@
 
         //编辑按钮
         function edit(val){
-           
-        }
+           istrue=true;
+           $('.mask').fadeIn('slow');
+           //填写信息
+          temp=$(val).parent().parent().children();
+          console.log(temp)
+          $('.name').val(temp.eq(1).text());
+          $('.age').val(temp.eq(2).text());
+           console.log( temp.eq(3).text());
+          temp.eq(3).text()=='男'?$('.sex').eq(0).prop('checked',true):$('.sex').eq(1).prop('checked',true)
+        };
+        
+        //保存按钮
+        $('.save').click(function(){
+            var name=$('.name').val();
+            var age=$('.age').val();
+            var sex=$('.sex:checked').val;
+            var user={
+                name:name,
+                age:age,
+                sex:sex==1?'男':'女'
+            }
+            if(istrue){
+                temp.eq(1).text(user.name);
+                temp.eq(2).text(user.age);
+                temp.eq(3).text(user.sex);
+            }else{
+                createTr(user)
+            }
+            cancel()
+        })
     </script>
 </body>
 </html>
