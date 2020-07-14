@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jq隐式迭代</title>
+    <script src="js/jquery-3.4.1.js"></script>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        我是盒子一
+    </div>
+    <div class="box">
+        我是盒子二
+    </div>
+    <div class="btn">获取</div>
+    <script>
+        $('.btn').click(function(){
+            //打印 2段内容 存在隐式迭代
+            //隐式迭代的意思: 在方法的内部会为所有屁拍到的内容进行循环遍历 执行相应的方法
+            //而不用我们再进行循环,简化了我们的操作方便我们调用
+            console.log($('.box').text());
+        })
+    </script>
+</body>
+</html>

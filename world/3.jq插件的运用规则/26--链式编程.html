@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>链式编程</title>
+    <script src="js/jquery-3.4.1.js"></script>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: aquamarine;
+        }
+        .inner-box{
+            width: 100px;
+            height: 100px;
+            background-color: #fff;
+            color: azure;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        我是一个外部盒子
+        <div class="inner-box">我是一个内部盒子</div>
+    </div>
+    <script>
+       $('.inner-box').click(function(){
+        //    $(this).css('width','80px').css('font-size','40px');
+        //链式编程原理:return this;调用任何一个方法都返回对象本身  
+        // console.log($(this).css('width','80px').css('font-size','20px').parent().css('width','200px'));
+        
+        //通常情况下,只有设置操作才能把链式编程延续下去,因为获取操作的时候,会返回获取到的相应的值,无法返回this
+        $(this).css('width','80px').css('font-size','20px').parent().css('width','300px').end().css('background-color','black')
+       })
+    </script>
+</body>
+</html>

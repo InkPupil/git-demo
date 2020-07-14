@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jq阻止冒泡事件</title>
+    <script src="js/jquery-3.4.1.js"></script>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: aquamarine;
+        }
+        .inner-box{
+            width: 100px;
+            height: 100px;
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+   <div class="box">
+       <div class="inner-box"></div>
+   </div> 
+   <script>
+       $('.box').click(function(){
+           console.log('我是一个外部盒子')
+       });
+
+        //    阻止冒泡
+        $('.inner-box').click(function(){
+            console.log('我是一个内部盒子');
+            //阻止冒泡
+            event.stopPropagation();
+            //阻止默认事件
+            event.preventDefault();
+        });
+   </script>
+</body>
+</html>
