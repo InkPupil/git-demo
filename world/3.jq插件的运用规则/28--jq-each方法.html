@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>each方法</title>
+    <script src="js/jquery-3.4.1.js"></script>
+</head>
+<body>
+    <!-- 大部分请况下是不需要each方法的,因为jq的隐式迭代特性 -->
+    <!-- 如果对每个元素进行不同的处理,这时候就用到each方法 -->
+    <ul>
+        <li>li-1</li>
+        <li>li-2</li>
+        <li>li-3</li>
+        <li>li-4</li>
+        <li>li-5</li>
+        <li>li-6</li>
+    </ul>
+    <script>
+      $('li').each(function(index,ele){
+        //   ele 当前正在遍历的dom对象
+        // index 当前正在遍历的dom对象的下标
+        // console.log(index);
+        // console.log(ele);
+        //如果下标大于3 就绑定点击事件
+        if(index>3){
+            ele.onclick=function(ele){
+                console.log(ele.target.textContent)
+            }
+        }
+      })
+    </script>
+</body>
+</html>
