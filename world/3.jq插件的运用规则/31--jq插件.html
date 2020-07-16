@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jq插件</title>
+    <script src="js/jquery-3.4.1.js"></script>
+</head>
+<body>
+    <div class="box">
+        我是盒子
+    </div>
+    <div class="btn">
+        修改字体颜色
+    </div>
+    <script>
+        $('.btn').click(function(){
+            console.log('1')
+            $.changeColor($('.box'));
+        })
+    </script>
+</body>
+</html>

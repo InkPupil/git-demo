@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jq多库共存</title>
+    <script src="js/jquery-3.4.1.js"></script>
+</head>
+<body>
+    <div class="box">
+
+    </div>
+    <script>
+        //如果想使jQuery让出"$"，只需要使用下面的语句：
+        //    jQuery.noConflict();  
+        //   该函数会返回jQuery对象本身，于是可以用来取别名，例如
+         var j = jQuery.noConflict(); 
+        // jQuery.noConflict;
+        // var $='前端大世界';
+        // console.log($)
+        
+        console.log(j('.box'))
+        //为了达到多库共存的目的(释放jq对$的控制权)
+    </script>
+</body>
+</html>

@@ -4,8 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>五角星</title>
+    <script src="js/jquery-3.4.1.js"></script>
+    <style>
+       *{
+           margin: 0;
+           padding: 0;
+       }
+       .star{
+           color: aquamarine;
+           margin-left: 10px;
+           font-size: 40px;
+       }
+    </style>
 </head>
 <body>
-    
+    <div class="box">
+        <span class="star">☆</span>
+        <span class="star">☆</span>
+        <span class="star">☆</span>
+        <span class="star">☆</span>
+        <span class="star">☆</span>
+    </div>
+    <script>
+      $('.star').mouseenter(function(){
+        //   console.log('1')
+        //prevAll 遍历之前所有的(定位到最后一个之前所有的变为他们执行操作)
+        $(this).text('★').prevAll().text('★')
+      });
+      $('.star').mouseleave(function(){
+            $(this).text('☆');
+        });
+        $('.box').mouseleave(function(){
+            $('.star').text('☆')
+        })
+    </script>
 </body>
 </html>
