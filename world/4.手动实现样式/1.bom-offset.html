@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bom-offset</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        .box{
+            /* position: fixed; */
+           width: 500px;
+           height: 500px;
+           background-color: pink;
+           margin-left:50px ;
+        }
+        .inner-box{
+          width: 200px;
+          height: 200px;
+          background-color: aqua;
+          /* margin-left: 30px; */
+          margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="inner-box"></div>
+    </div>
+    <script>
+        var box=document.getElementsByClassName('box')[0];
+        var inner=document.getElementsByClassName('inner-box')[0];
+
+       // offsetWidth/offsetHeight 检测盒子的宽高 (人为设定的宽高+padding+border)
+       console.log('box的宽高==>',box.offsetWidth,box.offsetHeight)
+
+       // offsetLeft/offsetTop 检测盒子距离有定位元素的父类盒子的 左上距离,(如果没有最终指向body)
+       console.log(box.offsetLeft,inner.offsetLeft);
+      
+      //offsetParent 获取当前元素具有定位元素的父盒子节点,没有直接到body
+      console.log(inner.offsetParent)
+    </script>
+</body>
+</html>

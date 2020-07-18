@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>offset和style的区别</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 300px;
+            height: 300px;
+            background-color: cyan;
+            margin: 70px auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="box" style="top:100px">
+
+    </div>
+    <script>
+        var box=document.getElementsByClassName('box')[0];
+
+        //offsetTop/offsetLeft和style.Top/style.left的区别
+        //style只能获取行内样式 没有设置top/left 就会返回''
+        //offsetTop/offsetLeft 返回距离有定位元素的左上距离 没有直接到body
+        console.log(box.offsetTop,box.style.top);
+    </script>
+</body>
+</html>

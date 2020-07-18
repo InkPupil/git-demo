@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jq--灯箱</title>
+    <!-- 引入css样式 -->
+    <link rel="stylesheet" href="lightbox/css/lightbox.css">
+    <!-- 引入依赖库 -->
+    <script src="../js/jquery-3.4.1.js"></script>
+    <!-- 引入核心库 -->
+    <script src="lightbox/js/lightbox.js"></script>
+    <style>
+
+        img{
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <a href="../img/m1.jpg" data-lightbox="roadtrip">
+        <img src="../img/m1.jpg" alt="">
+    </a>
+    <a href="../img/m2.jpg" data-lightbox="roadtrip">
+        <img src="../img/m2.jpg" alt="">
+    </a>
+    <script>
+        lightbox.option({
+            'resizeDuration': 200,
+
+            //是否循环
+            'wrapAround': false
+        })
+    </script>
+</body>
+</html>
