@@ -10,7 +10,6 @@
             width: 300px;
             height: 300px;
             background-color: cyan;
-            margin: 30px auto;
             text-align: center;
         }
         .btn{
@@ -37,7 +36,49 @@
         // btn2.onclick=function(){
         //     box.style.left = '800px'
         // }
-
+        
+        btn1.onclick=function(){
+            timer=setInterval(function(){
+                //起点距离
+                var start=box.offsetLeft;
+                // console.log(start);
+                var length=400;
+                //判断起点和终点的大小 如果起点大于终点为负 起点小于终点为正
+                var stemp=length>start?3:-3;
+                //当前距离等于起点加步长
+                box.style.left=start+stemp+'px';
+                //判断当前距离 终点距离
+                //如果小于步长直接等于终点距离
+                var cha=length-start;
+                console.log(cha)
+                if(Math.abs(cha) <= Math.abs(stemp)||length<=start){
+                    clearInterval(timer);
+                    box.style.left=length+'px'
+                }
+             console.log(box.style.left)   
+            },17)
+        };
+        btn2.onclick=function(){
+            timer=setInterval(function(){
+                //起点距离
+                var start=box.offsetLeft;
+                // console.log(start);
+                var length=800;
+                //判断起点和终点的大小 如果起点大于终点为负 起点小于终点为正
+                var stemp=length>start?3:-3;
+                //当前距离等于起点加步长
+                box.style.left=start+stemp+'px';
+                //判断当前距离 终点距离
+                //如果小于步长直接等于终点距离
+                var cha=length-start;
+                console.log(cha)
+                if(Math.abs(cha) <= Math.abs(stemp)||length<=start){
+                    clearInterval(timer);
+                    box.style.left=length+'px'
+                }
+             console.log(box.style.left)   
+            },17)
+        };   
     </script>
 </body>
 </html>
