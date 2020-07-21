@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>拖拽</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+       .box{
+         width: 700px;
+         height: 350px;
+         margin: 20px auto;
+         border: 1px solid #000000;
+         overflow: hidden; 
+       }
+       .inner{
+         position: absolute;
+         width: 200px;
+         height: 200px;
+         background-color: aqua;
+       }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="inner">
+             
+        </div>
+    </div>
+    <script>
+        var box=document.getElementsByClassName('box')[0];
+        var inner=document.getElementsByClassName('inner')[0];
+        //获取最小左边距
+        var minl=box.offsetLeft;
+        //最大左边距
+        var maxl=box.offsetLeft+box.offsetWidth-inner.offsetWidth;
+        //最小上边距
+        var mint=box.offsetTop;
+        //获取最大上边距
+        var maxt=box.offsetTop+box.offsetHeight-inner.offsetHeight;
+        console.log(minl,maxl,mint,maxt);
+        
+    </script>
+</body>
+</html>

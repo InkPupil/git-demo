@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+       .box{
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+            margin: 50px auto;
+            padding-top: 1px;
+       }
+       .inner-box{
+           width: 100px;
+           height: 100px;
+           margin: 50px auto;
+           background-color: yellow;
+       }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="inner-box">
+
+        </div>
+    </div>
+    <script>
+        var box=document.getElementsByClassName('box')[0];
+        var inner=document.getElementsByClassName('inner-box')[0];
+
+        // box.onclick=function(e){
+        //     e=e||window.e
+        //     console.log(e)
+        // };
+
+        //如果事件的执行函数里面写一个形参,这个形参就是event 对象,写多了形参无效
+        //event 可以简写成e
+        // box.onclick=function(e){
+            // //谷歌等浏览器和ie浏览器获取事件对象的兼容写法
+            // // e=event||window.event;
+            // // console.log(e)
+            // //事件目标 指向触发事件的元素本身 兼容写法 谷歌等浏览器e.target IE浏览器 e.srcElenent
+            // //获取事件目标的兼容写法
+            // var target=e.target||e.srcElement;
+            // console.log('target==>',e.target);
+            // console.log('srcElement==>',e.srcElement);
+
+            // //获取鼠标点击的相对页面的位置,算入滚动条的位置
+            // console.log('e.pageX==>',e.pageX);
+            // console.log('e.pageY==>',e.pageY);
+
+            // //获取鼠标点击的相对于可视区域的位置,目前可见区域
+            // console.log('e.clientX==>'+e.clientX);
+            // console.log('e.clientY==>'+e.clientY);
+
+            // //获取鼠标点击的相对于屏幕的位置,整个屏幕;
+            // console.log('e.screenX==>'+e.screenX);
+            // console.log('e.screenY==>'+e.screenY);
+
+            // //获取鼠标点击元素相对于元素的位置 
+            // console.log('e.offsetY==>'+e.offsetY);
+            // console.log('e.offsetX==>'+e.offsetX);
+        // };
+       box.onclick=function(e){
+           e=e||window.e;
+           //计算鼠标在元素中的位置
+           var distance=e.pageX-inner.offsetLeft;
+           console.log('鼠标距离页面的距离 e.pageX==>',e.pageX,'元素距离页面的距离 inner.offsetLeft==>',inner.offsetLeft);
+        //    console.log(distance);
+           var target=e.target||e.srcElement;
+        //    console.log(target);
+           console.log('target==>',target,'e.currentTarget==>',e.currentTarget);
+           //e.offsetX 指的是 鼠标距离触发事件的元素的左上距离
+           console.log('e.offsetX==>',e.offsetX);
+       }  
+    </script>
+</body>
+</html>
