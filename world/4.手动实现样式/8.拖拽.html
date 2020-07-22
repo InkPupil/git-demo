@@ -41,8 +41,15 @@
         var mint=box.offsetTop;
         //获取最大上边距
         var maxt=box.offsetTop+box.offsetHeight-inner.offsetHeight;
-        console.log(minl,maxl,mint,maxt);
+        // console.log(minl,maxl,mint,maxt);
         
+        inner.onmousedown=function(e){
+           e=e||window.e;
+           //获取鼠标距离元素左上的位置
+           var aquax=e.offsetX;
+           var aquay=e.offsetY;
+           console.log(aquax,aquay);
+        }
     </script>
 </body>
 </html>
