@@ -48,8 +48,34 @@
            //获取鼠标距离元素左上的位置
            var aquax=e.offsetX;
            var aquay=e.offsetY;
-           console.log(aquax,aquay);
-        }
+        //    console.log(aquax,aquay);
+           window.onmousemove=function(e){
+               e=e||window.e;
+               var pagex=e.pageX;
+               var pagey=e.pageY;
+               var targetX=pagex-aquax;
+               var targetY=pagey-aquay;
+            //    console.log(targetX,targetY);
+            console.log(minl,maxl)
+            if(targetX<=minl){
+                targetX=minl
+            }else if(targetX>=maxl){
+                targetX=maxl
+            };
+            if(targetY<=mint){
+                targetY=mint
+            }else if(targetY>=maxt){
+                targetY=maxt
+            }
+            console.log(targetX,targetY)
+            inner.style.left=targetX+'px';
+            inner.style.top=targetY+'px';
+           }
+           window.onmouseup = function (){
+					window.onmousemove = null;
+				}  
+        };
+
     </script>
 </body>
 </html>
