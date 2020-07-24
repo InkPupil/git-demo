@@ -36,8 +36,19 @@
     <script>
         var but=document.getElementsByTagName('button')[0];
         var box=document.getElementsByClassName('box')[0];
-        var imgel=docuemnt.getElementsByTagName('img')[0];
+        var imgel=document.getElementsByTagName('img')[0];
         
+        but.onclick=function(){
+            box.style.display="block";
+        };
+        box.onclick=function(){
+            box.style.display="none";
+        };
+        imgel.onclick=function(e){
+            e=e||window.e;
+            //兼容写法 e.stopPropagation() 主流浏览器 e.cancelBubble=true;低版本ie浏览器 
+            e.stopPropagation?e.stopPropagation():e.cancelBubble=true;
+        }
     </script>
 </body>
 </html>

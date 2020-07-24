@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件委托</title>
+</head>
+<body>
+    <ul>
+        <li>li1</li>
+        <li>li2</li>
+        <li>li3</li>
+        <li>li4</li>
+        <li>li5</li>
+        <li>li7</li>
+    </ul>
+    <script>
+        var ule=document.getElementsByTagName('ul')[0];
+        ule.onclick=function(e){
+            e=e||window.e;
+            //判别点击的是否是li
+            if(e.target.tagName==="LI"){
+                e.target.style.color="red"
+            }
+        };
+         var lie=document.createElement('li');
+         lie.innerText="li8";
+         ule.appendChild(lie); 
+    </script>
+</body>
+</html>
