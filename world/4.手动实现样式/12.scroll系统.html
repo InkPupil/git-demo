@@ -5,11 +5,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>scroll系统</title>
     <style>
-        
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            width: 3000px;
+            height: 3000px;
+        }
+        .box{
+           width: 200px;
+           height: 200px;
+           padding: 50px;
+           margin: 0 auto;
+           background-color: aqua;
+           overflow: auto;
+           border: 10px solid black; 
+        }
+        .inner{
+            width: 400px;
+            height: 400px;
+            background-color: aquamarine;
+        }
     </style>
 
 </head>
 <body>
-    
+    <div class="box">
+        <div class="inner"></div>
+    </div>
+    <script>
+        var box=document.getElementsByClassName('box')[0];
+        //scrollWidth/Height 值内容溢出时 值=内容宽高+padding 注意:有滚动条时,左右的padding只显示一个
+        //内容溢出:没有滚动条时,只显示上面的和左边的padding
+        //内容未溢出时: 值等于盒子宽高+padding
+        var sw=box.scrollWidth;//450 
+        var sh=box.scrollHeight;//500
+        console.log(sw,sh);
+        
+        //offsetWidth/Height 盒子宽高+padding+边框
+        var ow=box.offsetWidth;//320
+        var oh=box.offsetHeight;//320
+        console.log(ow,oh);
+
+        //body获取元素被卷进去的高度
+        window.onclick=function(){
+            var scrollTop=document.documentElement.scrollTop||window.pageYOffset||document.body.scrollTop;
+            var scrollLeft=document.documentElement.scrollLeft||window.pageXOffset||document.body.scrollLeft;
+            console.log(scrollTop,scrollLeft);
+        };
+
+        //box中被卷入的高度
+        box.onscroll=function(){
+             console.log("box.scrollTop==>"+box.scrollTop,"box.scrollLeft==>",box.scrollLeft);
+        };
+        window.onscroll= function(){
+            console.log(sct(),scl())
+        }
+
+        //页面卷入高度的封装
+        function sct(){
+            var scrollTop=document.documentElement.scrollTop||window.pageYOffset||document.body.scrollTop;
+            return scrollTop;
+        };
+        //页面卷入的左边距的封装
+        function scl(){
+            var scrollLeft=document.documentElement.scrollLeft||window.pageXOffset||document.body.scrollLeft;
+            return scrollLeft
+        }
+    </script>
 </body>
 </html>

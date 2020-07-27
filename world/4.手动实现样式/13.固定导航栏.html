@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>固定导航栏</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            height: 3000px;
+            /* overflow: hidden; */
+        }
+        .box1{
+            /* position: relative; */
+        }
+        .box{
+            /* position: absolute; */
+            margin-top: 80px;
+            top: 100px;
+            width: 100%;
+            height: 80px;
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <div class="box">
+        
+        </div>
+    </div>
+
+    <script>
+        var box=document.getElementsByClassName('box')[0];
+        
+        window.onscroll=function(){
+            //鼠标滑动的高度
+
+            var aquaT=box.offsetTop;
+            var scte=sct();
+            console.log(aquaT,scte);
+            box.style.top=aquaT+scte+'px'
+        };
+        function sct(){
+            return document.documentElement.scrollTop||window.pageYOffset||document.body.scrollTop;
+        }
+    </script>
+</body>
+</html>
