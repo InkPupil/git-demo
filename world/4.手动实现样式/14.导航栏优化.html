@@ -4,8 +4,156 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>导航栏优化</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            position: fixed;
+            top: 50px;
+            left: 100px;
+            width: 500px;
+            border: 3px solid black;
+        }
+        .box .d{
+            float: left;
+            width: 250px;
+            height: 40px;
+        }
+        .d1{
+				background-color:aqua;
+			}
+		.d2{
+				background-color: yellow;
+			}
+		.d3{
+				background-color: pink;
+			}
+        .d4{
+				background-color:rgba(0,0,0,.3);
+			}
+        .header{
+            height: 1500px;
+            background-color: aqua;
+            text-align: center;
+            font-size: 100px;
+        }
+        .container{
+            height: 1500px;
+            background-color: yellow;
+            text-align: center;
+            font-size: 100px;
+        }
+        .footer{
+            height: 1500px;
+            background-color: pink;
+            text-align: center;
+            font-size: 100px;
+        }
+        .last{
+            height: 1500px;
+            background-color: rgba(0, 0, 0, .3);
+            text-align: center;
+            font-size: 100px;
+        }
+    </style>
 </head>
 <body>
-    
+    <div class="box">
+        <div class="d d1"></div>
+        <div class="d d2"></div>
+        <div class="d d3"></div>
+        <div class="d d4"></div>
+    </div>
+    <div class="header">生</div>
+    <div class="container">而</div>
+    <div class="footer">不</div>
+    <div class="last">凡</div>
+    <script>
+        //获取类名
+         var d1=document.getElementsByClassName('d1')[0];
+         var d2=document.getElementsByClassName('d2')[0];
+         var d3=document.getElementsByClassName('d3')[0];
+         var d4=document.getElementsByClassName('d4')[0];
+         var header=document.getElementsByClassName('header')[0];
+         var container=document.getElementsByClassName('container')[0];
+         var footer=document.getElementsByClassName('footer')[0];
+         var last=document.getElementsByClassName('last')[0];
+        var timer=null;
+        
+        d1.onclick=function(){
+            clearInterval(timer);
+            timer=setInterval(function(){
+               var start=sct();
+               console.log(start);
+               var target=header.offsetTop;
+               var step=(target-start)/10;
+               if(Math.abs(step)<=1){
+                   step=step>0?1:Math.floor(step);
+               };
+               window.scroll(0,start+step);
+               if(start+step===target){
+                   clearInterval(timer)
+               }
+            },17)
+        };
+        d2.onclick=function(){
+            clearInterval(timer);
+            timer=setInterval(function(){
+               var start=sct();
+               console.log(start);
+               var target=container.offsetTop;
+               var step=(target-start)/10;
+               if(Math.abs(step)<=1){
+                   step=step>0?1:Math.floor(step);
+               };
+               window.scroll(0,start+step);
+               if(start+step===target){
+                   clearInterval(timer)
+               }
+            },17)
+        };
+        d3.onclick=function(){
+            clearInterval(timer);
+            timer=setInterval(function(){
+               var start=sct();
+               console.log(start);
+               var target=footer.offsetTop;
+               var step=(target-start)/10;
+               if(Math.abs(step)<=1){
+                   step=step>0?1:Math.floor(step);
+               };
+               window.scroll(0,start+step);
+               if(start+step===target){
+                   clearInterval(timer)
+               }
+            },17)
+        };
+        d4.onclick=function(){
+            clearInterval(timer);
+            timer=setInterval(function(){
+               var start=sct();
+               console.log(start);
+               var target=last.offsetTop;
+               var step=(target-start)/10;
+               if(Math.abs(step)<=1){
+                   step=step>0?1:Math.floor(step);
+               };
+               window.scroll(0,start+step);
+               if(start+step===target){
+                   clearInterval(timer)
+               }
+            },17)
+        };
+        //封装公用组件
+        //卷入的上边距
+        function sct(){
+            return document.documentElement.offsetTop||window.pageYOffset||document.body.offsetTop;
+        };
+        function scl(){
+            return document.documentElement.offsetLeft||window.pageXOffset||document.body.offsetLeft;
+        }
+    </script>
 </body>
 </html>
