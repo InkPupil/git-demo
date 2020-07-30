@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>广告跟随</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            height: 10000px;
+        }
+       .advance{
+           /* 相对定位 */
+           position: absolute;
+           top: 50%;
+           right: 60px;
+           width: 40px;
+           height: 100px;
+           padding: 40px 20px;
+           color: #fff;
+           background-color: aqua;
+       }
+    </style>
+</head>
+<body>
+    <div class="advance">
+        我是一条小青龙
+    </div>
+    <script>
+        var advance=document.getElementsByClassName('advance')[0];
+        //跟随移动 当前距离+滑动距离
+        
+        //当前距离
+        var aquaT=advance.offsetTop;
+        var timer=null;
+
+        window.onscroll=function(){
+            //滚动距离
+            var h=sct();
+            // console.log(h)
+            clearInterval(timer);
+            timer=setInterval(function(){
+                var start=advance.offsetTop;
+                var target=aquaT+h;
+                var step=(target-start)/10;
+                if(Math.abs(step)<1){
+                    step=step>0?1:Math.floor(step);
+                }
+                //元素移动
+                // console.log(start,step)
+                // advance.style.top=start+step+'px';
+                advance.style.top=start+step+'px';
+                if(start+step===target){
+                    clearInterval(timer)
+                }
+            },17)
+        };
+        function sct(){
+            return document.documentElement.scrollTop||window.pageYOffset||document.body.offsetTop;
+        };
+        function scl(){
+            return document.documentElement.scrollLeft||window.pageXOffset||document.body.offsetLeft;
+        };
+    </script>
+</body>
+</html>

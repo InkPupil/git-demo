@@ -4,8 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>滚动改变导航栏</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            height: 3000px;
+        }
+        .top{
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 150px;
+            background-color: #000000;
+        }
+    </style>
 </head>
 <body>
-    
+    <div class="top">
+
+    </div>
+    <script>
+        var tope=document.getElementsByClassName('top')[0];
+        //页面被卷入300的高度时,高度变化 100px;
+        //0-300页面的卷入高度  top的变化区间150-100
+        //页面被卷入的高度/300      header变化的高度/ 50
+        // 300/50=6/1
+        window.onscroll=function(){
+            var h=sct();
+            // console.log(h)
+            if(h<=300){
+                tope.style.height=150-h/6+'px';
+                tope.style.opacity=1-h/375;
+            }else{
+                tope.style.height=100+'px';
+                tope.style.opacity=0.2
+            }
+        }
+
+        //封装公用
+        function sct(){
+            return document.documentElement.scrollTop||window.pageYOffset||document.body.scrollTop;
+        };
+        function scl(){
+            return document.documentElement.scrollLeft||window.pageXOffset||document.body.scrollLeft;
+        }                  
+    </script>
 </body>
 </html>
