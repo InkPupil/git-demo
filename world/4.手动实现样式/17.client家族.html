@@ -5,10 +5,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>client家族</title>
     <style>
-        
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            position: relative;
+            padding: 20px;
+            border-width: 20px 30px 40px 50px;
+            background-color: aqua;
+            border-style: solid;
+            border-color:red;
+            width: 200px;
+            height: 200px;
+            overflow: auto;
+            margin: 20px auto;  
+        }
+        .count{
+				width: 600px;
+				height: 400px;
+				margin: 50px auto;
+				padding-top: 20px;
+				border: 30px solid #002BFF;
+			}
+        .inner{
+            width: 400px;
+            height: 400px;
+            background-color: yellow;
+        }
     </style>
 </head>
 <body>
-    
+    <div class="count">
+        count
+        <div class="box">
+            box
+            <div class="inner">
+                inner
+            </div>
+        </div>
+    </div>
+    <script>
+       var count=document.getElementsByClassName('count')[0];
+       var box=document.getElementsByClassName('box')[0];
+       var inner=document.getElementsByClassName('inner')[0];
+       
+       //当有滚动条时 clientHeight/clientWidth 不会算滚动条的宽度  (算入padding 不算border)
+       //offset的宽高 padding+border+盒子自身的宽高
+       console.log(box.clientHeight,box.clientWidth)
+       console.log(box.offsetHeight,box.offsetWidth);
+
+       console.log(inner.clientHeight,inner.clientWidth);
+       console.log(inner.offsetHeight,inner.offsetWidth);
+       
+       console.log(inner.offsetParent.tagName);
+       console.log(box.offsetTop,box.clientTop);
+       function gettop(ele){
+           //终止条件 判断相对点位的父元素是不是body 如果是 就停止函数
+            if(ele.offsetParent.tagName==='BODY'){
+                return ele.offsetTop + ele.clientTop;
+            };
+            // 如果不是 就加上父类的offsetTop+clientTop
+            return ele.offsetTop+ele.clientTop+gettop(ele.parentNode);
+       }
+    </script>
 </body>
 </html>
