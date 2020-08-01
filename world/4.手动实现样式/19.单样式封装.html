@@ -10,7 +10,41 @@
 </head>
 <body>
     <script>
-        
+        function oneSytle(ele,styleName,target){
+            clearInterval(ele.timer);
+            if(styleName==="opacity"){
+                target *=10;
+            };
+            if(styleName==="zIndex"){
+                ele.style.zIndex=target;
+                return
+            };
+            ele.timer=setInterval(function(){
+                // 获取起点 当前元素的样式值
+                if(styleName==="opacity"){
+                    var start=parseInt(window.getComputedStyle(ele,null)[styleName]*10);
+                }else{
+                    var start=parseInt(window.getComputedStyle(ele,null)[styleName]);
+                }
+            });
+            //设置步长
+            var step=(target-start)/10;
+            //判断步长区间
+            if(Math.abs(step)<1){
+                step=step>0?1:Math.floor(step);
+            };
+            console.log(start,target);
+            //运动
+            if(styleName==="opacity"){
+                ele.style[styleName]=(start+step)/10;
+            }else{
+                ele.style[styleName]=start+step+'px';
+            };
+            //停止 定时器
+            if(start+step===target){
+                clearInterval(ele.timer)
+            }
+        }
     </script>
 </body>
 </html>

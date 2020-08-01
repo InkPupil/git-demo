@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>多样式封装</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <script>
+        function manyStyle(ele,obj){
+            clearInterval(ele.timer);
+            ele.timer=setInterval(function(){
+                var flag=true;
+                //
+                for(var i in obj){
+                    if(i==='zIndex'){
+                        ele.style.zIndex=obj[i];
+                        continue;
+                    }else if(i==='opacity'){
+                        //起点 获取的是 1*10
+                        var start=parseInt(window.getComputedStyle(ele,null)[i]*100);
+                        //
+                        var target=obj[i]*100;
+                    }else{
+                        //起点获取到的是"100px"
+                        var start=parseInt(window.getComputedStyle(ele,null)[i]);
+                        //终点
+                        var target=obj[i];
+                    };
+                    //步长
+                    var step=(target-start)/10;
+                    //步长区间和方向
+                    if(Math.abs(step)<1){
+                        step=step>0?1:Math.floor(step);
+                    };
+                    //运动
+                    if(i==="opacity"){
+                        ele.style[i]=(start-step)/100;
+                    }else{
+                        ele.style[i]=start+step+'px';
+                    };
+                     //终止定时器
+                     //需要记录每一个样式是否达到终点的
+                     if(start+step!==target){
+                         flag=false;
+                     };
+                };
+                if(flag){
+                    clearInterval(ele.timer)
+                }
+            })
+        }
+    </script>
+</body>
+</html>
