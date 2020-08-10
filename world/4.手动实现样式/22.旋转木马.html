@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>旋转木马</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .swiper{
+            position: relative;
+            width: 1200px;
+            margin: 20px auto;  
+        }
+        .swiper .ule{
+            height: 500px;
+            list-style: none;
+        }
+        .swiper .li-swiper{
+            position: absolute;
+        }
+        .swiper .ule li img{
+            width: 100%;
+        }
+        .arr{
+            position: absolute;
+            top: 50%;
+            left: 0;
+            display: block;
+            width: 30px;
+            height: 70px;
+            margin-top: -35px;
+            line-height: 70px;
+            text-align: center;
+            color: aliceblue;
+            font-size: 30px;
+            text-decoration: none;
+            background-color: rgba(0, 0, 0, .2);
+            z-index: 999;
+        }
+        .arr-r{
+            margin-left: auto;
+            right: 0;
+        }
+
+        .ule .li-1{
+            width: 400px;
+            top: 70px;
+            left: 50px;
+            opacity: .2;
+            z-index: 2;
+            
+        }
+        .ule .li-2{
+            width: 600px;
+            top: 120px;
+            left: 0px;
+            opacity: .8;
+            z-index: 3;
+        }
+        .ule .li-3{
+            width: 800px;
+            top: 100px;
+            left: 200px;
+            opacity: 1;
+            z-index: 4;
+        }
+        .ule .li-4{
+            width: 600px;
+            top: 120px;
+            left: 600px;
+            opacity: .8;
+            z-index: 3;
+        }
+        .ule .li-5{
+            width: 400px;
+            top: 70px;
+            left: 750px;
+            opacity: .2;
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+    <div class="swiper">
+        <ul class="ule">
+            <li class="li-1 li-swiper"><a href="#"><img src="img/m1.jpg" alt=""></a></li>
+            <li class="li-2 li-swiper"><a href="#"><img src="img/m2.jpg" alt=""></a></li>
+            <li class="li-3 li-swiper"><a href="#"><img src="img/m3.jpg" alt=""></a></li>
+            <li class="li-4 li-swiper"><a href="#"><img src="img/m4.jpg" alt=""></a></li>
+            <li class="li-5 li-swiper"><a href="#"><img src="img/m5.jpg" alt=""></a></li>
+        </ul>
+        <a href="javascript:;" class="arr arr-l"><</a>
+        <a href="javascript:;" class="arr arr-r">></a>
+    </div>
+    <script>
+        
+    </script>
+</body>
+</html>

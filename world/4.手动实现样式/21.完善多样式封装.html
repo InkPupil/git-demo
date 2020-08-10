@@ -37,20 +37,62 @@
         var but2=document.getElementsByTagName('button')[1];
         
         but1.onclick=function(){
-
+               manyStyle(box,{width:300,height:200,opacity:.3,top:200,left:200})
         };
         but2.onclick=function(){
-
+               manyStyle(box,{width:100,height:100,opacity:1,top:0,left:0});
         };
         function manyStyle(ele,obj){
             clearInterval(ele.timer);
             ele.timer=setInterval(function(){
                 for(var i in obj){
+                var flg=true;
                     //设置一个状态
-                     var flag=true;
+                   if(i==='zIndex'){
+                       ele.style.zIndex=obj[i];
+                       continue;
+                   }else if(i==="opacity"){
+                       //起点 获取是1*10
+                       var start=parseInt(getStyle(ele,i)*100);
+                    //    console.log(start)
+                       //    终点
+                       var target=obj[i]*100;
+                   }else{
+                       //起点 获取到的是"100px"
+                       var start=parseInt(getStyle(ele,i));
+                       //终点
+                       var target=obj[i]
+                   }
+                   var step=(target-start)/10;
+                   if(Math.abs(step)<1){
+                       step=step>0?1:Math.floor(step);
+
+                   };
+                   //判断是是否是opacity
+                   if(i==="opacity"){
+                       ele.style[i]=(step+start)/100;
+                   }else{
+                       ele.style[i]=start+step+'px';
+                   };
+                   //判断是否成立 不成立改变状态
+                   if(start+step!=target){
+                       flg=false;
+                   };
+                   console.log(start,step,target);
                 }
-            })
-        }
+                if(flg){
+                    clearInterval(ele.timer);
+                }
+            },17)
+        };
+        //获取样式名的封装 
+        function getStyle(ele,styleName){
+            if(window,getComputedStyle){
+                return  window.getComputedStyle(ele,null)[styleName];
+            }else{
+                return   ele.currentStyle[styleName];
+            }
+        };
     </script>
 </body>
 </html>
