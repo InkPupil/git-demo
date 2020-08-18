@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>旋转木马</title>
+    <script src="myjq.js"></script>
     <style>
         *{
             margin: 0;
@@ -96,7 +97,66 @@
         <a href="javascript:;" class="arr arr-r">></a>
     </div>
     <script>
-        
+        var but1=document.getElementsByClassName('arr-l')[0];
+        var but2=document.getElementsByClassName('arr-r')[0];
+        var ule=document.getElementsByClassName('ule')[0];
+        var lis=ule.children;
+        //整体移动 tab向前 shift+tab向后
+        //arr跟着循环变化
+        var arr=[
+            {
+                width:400,
+                top:70,
+                left:50,
+                opacity:.2,
+                zIndex:2
+            },
+            {
+                width:600,
+                top:120,
+                left:0,
+                opacity:.8,
+                zIndex:3
+            },
+            {
+                width:800,
+                top:100,
+                left:200,
+                opacity:1,
+                zIndex:4
+            },
+            {
+                width:600,
+                top:120,
+                left:600,
+                opacity:.8,
+                zIndex:3
+            },
+            {
+                width:400,
+                top:70,
+                left:750,
+                opacity:.2,
+                zIndex:2
+            }
+        ];
+
+        but1.onclick=function(){
+            // console.log(arr.unshift(arr.pop()));
+            // console.log(arr)
+            arr.unshift(arr.pop());
+            for(var i=0;i<arr.length;i++){
+                manyStyle(lis[i],arr[i])
+            };
+        };
+        but2.onclick=function(){
+            // console.log(arr.unshift(arr.pop()));
+            // console.log(arr)
+            arr.push(arr.shift());
+            for(var i=0;i<arr.length;i++){
+                manyStyle(lis[i],arr[i])
+            };
+        };
     </script>
 </body>
 </html>

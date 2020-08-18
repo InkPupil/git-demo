@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>柱状图排序</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+           position: relative;
+           width: 950px;
+           height: 330px;
+           margin: 20px auto;
+           border: 1px solid rgba(0, 0, 0, .5);
+           list-style: none; 
+        }
+        li{
+            position: absolute;
+            bottom: 0;
+            width: 50px;
+            height: 60px;
+            background-color: aqua;
+        }
+        .but{
+            width: 100%;
+            text-align: center;
+        }
+        button{
+            margin-left: 50px;
+            width: 100px;
+            height: 30px;
+        }
+        li{
+            position: absolute;
+            bottom: 0;
+            width: 50px;
+            height: 60px;
+            background-color:aqua;
+        }
+        
+    </style>
+</head>
+<body>
+    <ul class="box">
+        <!-- 自动生成li -->
+    </ul>
+    <div class="but">
+        <button>生成柱状图</button>
+        <button>开始排序</button>
+    </div>
+    <script>
+        var box=document.getElementsByClassName('box')[0];
+        var but=document.getElementsByTagName('button')[0];
+        var but1=document.getElementsByTagName('button')[1]
+        
+    </script>
+</body>
+</html>
